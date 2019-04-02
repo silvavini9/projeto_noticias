@@ -1,19 +1,27 @@
-var http = require ('http');
+var express = require ('express');
 
-var server = http.createServer(function(req,res){
-    var categoria = req.url;
-    if(categoria == '/cursos'){
-        res.end("<html><head><meta charset='UTF-8'></head><meta><body><h1> IFMS - Notícias de Cursos </h1><body><html>");
-    } else if (categoria == '/esportes'){
-        res.end("<html><head><title>Fazendo Aplicações Node</title><meta charset='UTF-8'></head><meta><body><h1> IFMS - Notícias de Esportes</h1><body><html>");
-    } else if(categoria == '/pesquisa'){
-        res.end("<html><head><title>Fazendo Aplicações Node</title><meta charset='UTF-8'></head><meta><body><h1> IFMS - Notícias de Pesquisa </h1><body><html>");
-    }
-    else {
-        res.end("<html><head><title>Fazendo Aplicações Node</title><meta charset='UTF-8'></head><meta><body><h1> Portal de notícias IFMS </h1><body><html>");
-    }
+var app = express();
 
+app.set('view engine', 'ejs');
+
+
+app.get('/',function(req,res){
+    res.render("home/index");
 });
 
-server.listen(3000);
-console.log('Escutando a porta 3000');
+app.get('/cursos',function(req,res){
+    res.render("secao/cursos");
+});
+
+app.get('/esportes',function(req,res){
+    res.render("secao/esportes");
+});
+
+app.get('/pesquisa',function(req,res){
+    res.render("secao/pesquisa");
+});
+
+
+app.listen(3000,function() {
+    console.log("Servidor rodando com express")
+})
