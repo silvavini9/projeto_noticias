@@ -1,12 +1,12 @@
-var express = require ('express');
+var express = require ('express');//Pega toda a biblioteca do espress
 
-var app = express();
+var app = express();//Faz todos os methodos do express em uma unica variavel
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');//Define o tipo de motor de vizualização
 
 
-app.get('/',function(req,res){
-    res.render("home/index");
+app.get('/',function(req,res){//Pega o caminho da url
+    res.render("home/index");//Renderiza a página que está na pasta view
 });
 
 app.get('/cursos',function(req,res){
