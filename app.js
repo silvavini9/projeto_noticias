@@ -1,27 +1,14 @@
-var express = require ('express');//Pega toda a biblioteca do espress
-
-var app = express();//Faz todos os methodos do express em uma unica variavel
+var app = require('./config/server');
 
 app.set('view engine', 'ejs');//Define o tipo de motor de vizualização
 
+var rotaNoticias = require('./app/routes/noticias')(app);
 
-app.get('/',function(req,res){//Pega o caminho da url
-    res.render("home/index");//Renderiza a página que está na pasta view
-});
+var rotaHome = require('./app/routes/home')(app);
 
-app.get('/cursos',function(req,res){
-    res.render("secao/cursos");
-});
 
-app.get('/esportes',function(req,res){
-    res.render("secao/esportes");
-});
-
-app.get('/pesquisa',function(req,res){
-    res.render("secao/pesquisa");
-});
-
+var rotaFormInclusaoNoticia = require('./app/routes/formulario_inclusao_noticias')(app);
 
 app.listen(3000,function() {
-    console.log("Servidor rodando com express")
+    console.log('Servidor ON');
 })
