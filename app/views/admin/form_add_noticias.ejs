@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Formulário de adição de notícias</h1>
+    <form action="/noticias/salvar" method="POST">
+        <label for="titulo">Título</label><br><br>
+        <input type="text" id="titulo" name="titulo" placeholder="Título da Notícia"/><br><br>
+        <label for="noticia">Notícia</label><br><br>
+        <textarea type="text" id="noticia" name="noticia" rows="5" cols="30"></textarea><br><br>
+        <input type="submit" value='Enviar'/>
+    </form>
 </body>
 </html>
