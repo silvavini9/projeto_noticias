@@ -18,5 +18,3 @@ function NoticiasDAO(connection){
 module.exports = function(){
     return NoticiasDAO;
 }
-
-NoticiasDAO.pro

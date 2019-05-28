@@ -1,11 +1,11 @@
 module.exports = function(app) {
     app.get('/formulario_inclusao_noticia',function(req,res){
-        res.render("admin/form_add_noticias", {validacao:{}});
+        res.render("admin/form_add_noticias", {validacao:{}, noticia:{}});
     });
 
     app.post('/noticias/salvar', function(req, res) {
-    	var noticia = req.body;
 
+    	var noticia = req.body;
 
         req.assert('titulo', 'Titulo é obrigatório').notEmpty();
         req.assert('resumo', 'Resumo é obrigatório').notEmpty();
@@ -19,7 +19,7 @@ module.exports = function(app) {
         console.log(erros); //vai mostrar a Lista de erros no console
 
         if(erros){
-            res.render("admin/form_add_noticias", {validacao: erros});//Faz voltar à pagina de inclusão de notícia
+            res.render("admin/form_add_noticias", {validacao: erros, noticia: noticia});//Faz voltar à pagina de inclusão de notícia
             return;//o return faz que não continue o processo seguinte
         }
         
