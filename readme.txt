@@ -1,0 +1,2 @@
+Conseguimos colocar em um padrão que é o DAO ( Data Acces Object ) e conseguimos instanciar essa classe para não termos problemas em sobrescrever as variáves do nosso ambiente.
+Uma das coisas que fazemos tambem e colocar o New em nossas rotas para sempre criarmos uma nova instância assim não obtendo nenhum risco em sobrescrever as variáves.
