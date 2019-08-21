@@ -1,8 +1,8 @@
 module.exports.noticias = function(app, req, res){
+
 	var connection = app.config.dbConnection();
     var noticiasModel = new app.app.models.NoticiasDAO(connection);
 
-    //connection.query('select * from noticias', function(error, result){
     noticiasModel.getNoticias( function(error, result){
         res.render('noticias/noticias',{noticias: result});
     });
@@ -12,12 +12,28 @@ module.exports.noticias = function(app, req, res){
 module.exports.noticia = function(app, req, res){
 	 var connection = app.config.dbConnection();
 
-	 var noticiasModel = new app.app.models.NoticiasDAO(connection);
+     var noticiasModel = new app.app.models.NoticiasDAO(connection);
+     if(req.query.id_noticia){
+        var id_noticia = req.query;
+     }else{
+         res.redirect('/noticias');
+         return;
+     }
 
-     noticiasModel.getNoticia(function(error, result){
+     noticiasModel.getNoticia(id_noticia ,function(error, result){
         res.render('noticias/noticia',{noticia: result})
      });
 
 };
+
+module.exports.busca = function(app, req, res) {
+    var pesquisa = req.body.pesquisa;
+    var connection = app.config.dbConnection();
+    var noticiasModel = new app.app.models.NoticiasDAO(connection);
+
+    noticiasModel.buscarNoticias(pesquisa, function(error, result) {
+        res.render('noticias/noticias', { noticias: result});
+    });
+}
 
 
