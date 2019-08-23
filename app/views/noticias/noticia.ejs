@@ -16,6 +16,14 @@
 
 		<!-- favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico" />
+
+		<script type="text/javascript">
+			function Confirma(param) {
+				if(confirm("Confirma a exclusão da noticia?")){
+					location.href = "excluir?id_noticia=" + param;
+				}
+			}
+		</script>
 	</head>
 
 	<body>
@@ -55,7 +63,15 @@
 		    			</p>
 		    		</div>
 		    	</div>
-	    	</div>
+			</div>
+			<div class="row ver_mais">
+				<button type="button" class="btn btn-default" id="excluir" onclick="Confirma(<%= noticia[0].id_noticia %>)">
+					<a href="#">Excluir Notícia</a>
+				</button>
+				<button type="button" class="btn btn-default" id="editar">
+					<a href="editar?id_noticia=<%noticia[0].id_noticia %>">Alterar Notícia</a>
+				</button>
+			</div>
 	    </div>
 	
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

@@ -7,7 +7,15 @@ module.exports = function(app){
        app.app.controllers.noticias.noticia(app,req,res);
     });
 
-    app.post('/buscar', function(req,res){
-        app.app.controllers.noticias.buscar(app, req, res);
+    app.post('/busca', function(req,res){
+        app.app.controllers.noticias.busca(app, req, res);
     })
+
+    app.get('/excluir', function(req, res) {
+        app.app.controllers.noticias.excluir(app, req, res);
+    });
+
+    app.get('/editar', function(req, res){
+        app.app.controllers.noticias.editar(app, req, res);
+    }); 
 }
