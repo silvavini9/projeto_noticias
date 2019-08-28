@@ -68,9 +68,13 @@
 				<button type="button" class="btn btn-default" id="excluir" onclick="Confirma(<%= noticia[0].id_noticia %>)">
 					<a href="#">Excluir Notícia</a>
 				</button>
+				
 				<button type="button" class="btn btn-default" id="editar">
-					<a href="editar?id_noticia=<%noticia[0].id_noticia %>">Alterar Notícia</a>
+					<a href="editar?id_noticia=<%=noticia[0].id_noticia %>">
+						Alterar Notícia
+					</a>	
 				</button>
+				
 			</div>
 	    </div>
 	

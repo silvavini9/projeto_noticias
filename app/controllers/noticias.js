@@ -65,7 +65,8 @@ module.exports.editar = function(app, req, res) {
         res.redirect('/noticias');
         return;
     }
-    noticiasModel.getNoticia( id_noticia, function(error, result){
+    
+    noticiasModel.getNoticia(id_noticia, function(error, result){
         res.render('admin/form_update_noticia', { validacao: {} , noticia: result });
     });
 }
